@@ -6,6 +6,15 @@ return {
 		end,
 	},
 	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
@@ -108,6 +117,8 @@ return {
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Get information when hover" })
 			vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "Show Declaration" })
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Show Defintion" })
+			vim.keymap.set("n", "[d", ":Lspsaga diagnostic_jump_next <cr>", { desc = "Next diagnostik" , silent = true })
+			vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_prev <cr>", { desc = "Previous diagnostik", silent = true })
 			vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "Show Code action" })
 		end,
 	},
