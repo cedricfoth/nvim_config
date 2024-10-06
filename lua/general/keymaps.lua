@@ -23,6 +23,15 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>tt", ":VimtexTocToggle<CR>", { desc = "Toggle TOC", silent = true })
 vim.keymap.set("n", "<leader>ts", ":VimtexView<CR>", { desc = "Show in PDF", silent = true })
 
+
+-- Obisidian commands
+vim.keymap.set("n", "<leader>oo", ":ObsidianOpen<cr>", { desc = "Open current File in Obsidian", silent = true })
+vim.keymap.set("n", "<leader>os", ":ObsidianFollowLink vsplit<cr>", { desc = "Open Link in vsplit", silent = true })
+vim.keymap.set("n", "<leader>oh", ":ObsidianFollowLink hsplit<cr>", { desc = "Open Link in hsplit", silent = true })
+vim.keymap.set("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open Link in hsplit", silent = true })
+
+
+
 --Normal Mode
 vim.keymap.set("n", "<leader>kj", ":nohl<cr>", { desc = "Clear Hightlights", silent = true })
 
