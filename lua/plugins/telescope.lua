@@ -6,12 +6,12 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
     "folke/todo-comments.nvim",
+    "nvim-telescope/telescope-bibtex.nvim",
   },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local transform_mod = require("telescope.actions.mt").transform_mod
-
 
     telescope.setup({
       defaults = {
@@ -23,9 +23,39 @@ return {
           },
         },
       },
+      load_extension = { "fzf", "bibtex", "lazygit" },
+      extensions = {
+        bibtex = {
+          depth = 1,
+          -- Depth for the *.bib file
+          global_files = {'~/Library/texmf/bibtex/bib/Zotero.bib'},
+          -- Path to global bibliographies (placed outside of the project)
+          search_keys = { "author", "year", "title" },
+          -- Define the search keys to use in the picker
+          citation_format = "{{author}} ({{year}}), {{title}}.",
+          -- Template for the formatted citation
+          citation_trim_firstname = true,
+          -- Only use initials for the authors first name
+          citation_max_auth = 2,
+          -- Max number of authors to write in the formatted citation
+          -- following authors will be replaced by "et al."
+          custom_formats = {
+            { id = "citep", cite_maker = "\\citep{%s}" },
+          },
+          -- Custom format for citation label
+          format = "citep",
+          -- Format to use for citation label.
+          -- Try to match the filetype by default, or use 'plain'
+          context = true,
+          -- Context awareness disabled by default
+          context_fallback = true,
+          -- Fallback to global/directory .bib files if context not found
+          -- This setting has no effect if context = false
+          wrap = false,
+          -- Wrapping in the preview window is disabled by default
+        },
+      },
     })
-
-    telescope.load_extension("fzf")
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
@@ -35,5 +65,6 @@ return {
     keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+    keymap.set("n", "<leader>fz", "<cmd>Telescope bibtex format_string=\\citep{%s}<cr>", { desc = "Find Literature" })
   end,
 }
