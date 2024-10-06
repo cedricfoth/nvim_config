@@ -13,14 +13,15 @@ vim.keymap.set("n", "<Leader>sv", "<C-w>v", { desc = "Vertical Split" })   -- Sp
 vim.keymap.set("n", "<Leader>sx", "<C-w>q", { desc = "Quit Split" })       -- Quit Split
 
 -- -- Vimtext
-vim.keymap.set("n", "<leader>qc", ":VimtexCompile<CR><CR>", { desc = "Compile Latex Document", silent = true })
+vim.keymap.set("n", "<leader>tc", ":VimtexCompile<CR><CR>", { desc = "Compile Latex Document", silent = true })
 vim.keymap.set(
   "n",
-  "<leader>qs",
+  "<leader>tz",
   ":!zathura --fork %:t:r.pdf<CR><CR>",
   { desc = "Open zathura for current document", silent = true }
 )
 vim.keymap.set("n", "<leader>tt", ":VimtexTocToggle<CR>", { desc = "Toggle TOC", silent = true })
+vim.keymap.set("n", "<leader>ts", ":VimtexView<CR>", { desc = "Show in PDF", silent = true })
 
 --Normal Mode
 vim.keymap.set("n", "<leader>kj", ":nohl<cr>", { desc = "Clear Hightlights", silent = true })
