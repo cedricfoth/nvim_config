@@ -1,3 +1,3 @@
-#NVIM Config
+# NVIM Config
 
-##Main features
+## Main features
