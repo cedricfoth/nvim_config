@@ -11,6 +11,13 @@
 vim.keymap.set("n", "<Leader>sh", "<C-w>s", { desc = "Horizontal Split" }) -- Split Horizontal
 vim.keymap.set("n", "<Leader>sv", "<C-w>v", { desc = "Vertical Split" })   -- Split Vertical
 vim.keymap.set("n", "<Leader>sx", "<C-w>q", { desc = "Quit Split" })       -- Quit Split
+vim.keymap.set("n", "<Leader>se", "<C-w>=", { desc = "Equal Size" })       -- Equal Size
+vim.keymap.set("n", "<Leader>sm", "<C-w>T", { desc = "Open in Tab" })       -- Open in Tab
+
+
+-- -- Tabs
+vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", { desc = "New Tab",silent = true }) -- New Tab
+vim.keymap.set("n", "<Leader>qt", ":tabc<CR>", { desc = "Close Tab", silent = true }) -- Close Tab
 
 -- -- Vimtext
 vim.keymap.set("n", "<leader>tc", ":VimtexCompile<CR><CR>", { desc = "Compile Latex Document", silent = true })
