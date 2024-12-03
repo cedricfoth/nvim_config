@@ -35,7 +35,8 @@ vim.keymap.set("n", "<leader>ts", ":VimtexView<CR>", { desc = "Show in PDF", sil
 vim.keymap.set("n", "<leader>oo", ":ObsidianOpen<cr>", { desc = "Open current File in Obsidian", silent = true })
 vim.keymap.set("n", "<leader>os", ":ObsidianFollowLink vsplit<cr>", { desc = "Open Link in vsplit", silent = true })
 vim.keymap.set("n", "<leader>oh", ":ObsidianFollowLink hsplit<cr>", { desc = "Open Link in hsplit", silent = true })
-vim.keymap.set("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open Link in hsplit", silent = true })
+vim.keymap.set("n", "<leader>og", ":ObsidianFollowLink<cr>", { desc = "Follow Link", silent = true })
+vim.keymap.set("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open TOC", silent = true })
 
 
 -- Diffview
