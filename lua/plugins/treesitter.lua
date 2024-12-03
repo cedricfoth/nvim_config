@@ -1,12 +1,24 @@
-return{
-  "nvim-treesitter/nvim-treesitter", 
-  build = ":TSUpdate",
-  config = function()
-    local config = require("nvim-treesitter.configs")
-    config.setup({
-      ensure_installed = {"bibtex","cmake","cpp","yaml","python","lua"},
-      highlight = { enable = false},
-      indent = { enable = true},
-    })
-  end
+return {
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	config = function()
+		local config = require("nvim-treesitter.configs")
+		config.setup({
+			ensure_installed = {
+				"bibtex",
+				"cmake",
+				"cpp",
+				"yaml",
+				"python",
+				"lua",
+				"latex",
+				"vim",
+				"matlab",
+        "markdown",
+				"gitignore",
+			},
+			highlight = { enable = false },
+			indent = { enable = true },
+		})
+	end,
 }

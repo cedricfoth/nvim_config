@@ -12,9 +12,9 @@ return {
           },
         },
       },
-      -- options = {
-      --   theme = 'dracula'
-      -- }
+      options = {
+        theme = 'dracula'
+      }
     })
   end,
 }
