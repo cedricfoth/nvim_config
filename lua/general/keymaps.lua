@@ -47,6 +47,8 @@ vim.keymap.set("n", "<leader>gc", ":DiffviewClose<cr>", { desc = "Close Diffview
 
 --Normal Mode
 vim.keymap.set("n", "<leader>kj", ":nohl<cr>", { desc = "Clear Hightlights", silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Clear Hightlights", silent = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Clear Hightlights", silent = true })
 
 --Insert Mode
 vim.keymap.set("i", "kj", "<Esc>", {})
