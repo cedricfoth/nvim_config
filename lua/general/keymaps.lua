@@ -38,6 +38,11 @@ vim.keymap.set("n", "<leader>oh", ":ObsidianFollowLink hsplit<cr>", { desc = "Op
 vim.keymap.set("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open Link in hsplit", silent = true })
 
 
+-- Diffview
+vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<cr>", { desc = "Open Diffview", silent = true })
+vim.keymap.set("n", "<leader>gc", ":DiffviewClose<cr>", { desc = "Close Diffview", silent = true })
+
+
 
 --Normal Mode
 vim.keymap.set("n", "<leader>kj", ":nohl<cr>", { desc = "Clear Hightlights", silent = true })
