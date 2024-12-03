@@ -1,3 +1,7 @@
 return {
-	s("test", t("should work only in latex loaded!!"))
+  s("autoref", {
+    t({"\\autoref{"}),
+    i(1),
+    t({"}"})
+  }),
 }
