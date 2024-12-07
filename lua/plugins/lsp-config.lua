@@ -117,6 +117,8 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, {  noremap=true, silent=true,desc = "Format Buffer" })
+			vim.keymap.set("n", "<leader>lx", ":LspStop<cr>", {  noremap=true, silent=true,desc = "Stop LSP" })
+			vim.keymap.set("n", "<leader>ls",  ":LspStart<cr>", {  noremap=true, silent=true,desc = "Start LSP" })
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {  noremap=true, silent=true,desc = "Get information when hover" })
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap=true, silent=true,desc = "Show Declaration" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {  noremap=true, silent=true,desc = "Show Defintion" })
