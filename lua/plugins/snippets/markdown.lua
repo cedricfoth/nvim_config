@@ -7,6 +7,6 @@ return{
   s("weekly", {
     t({"### "..vim.fn.strftime("%Y-%m-%d"), "Fragen: "}),
     i(1),
-    t({"#### Informationen/Notes:","", "#### Wichtige Punkte:","","#### Zusammenfassung:", ""})
+    t({"","#### Informationen/Notes:","", "#### Wichtige Punkte:","","#### Zusammenfassung:", ""})
   })
 }
