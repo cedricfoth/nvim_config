@@ -7,6 +7,10 @@
 --vim.keymap.set('n','<c-j>',':wincmd j<CR>',{}) --Move Down
 --vim.keymap.set('n','<c-k>',':wincmd k<CR>',{}) -- Move Up
 
+vim.keymap.set("n", "ä", "]", {remap = true}) -- Split Horizontal
+vim.keymap.set("n", "ö", "[", {remap = true})   -- Split Vertical
+vim.keymap.set("n", "ü", "'", {remap = true})   -- Split Vertical
+
 -- -- Split
 vim.keymap.set("n", "<Leader>sh", "<C-w>s", { desc = "Horizontal Split" }) -- Split Horizontal
 vim.keymap.set("n", "<Leader>sv", "<C-w>v", { desc = "Vertical Split" })   -- Split Vertical
@@ -18,6 +22,7 @@ vim.keymap.set("n", "<Leader>sm", "<C-w>T", { desc = "Open in Tab" })       -- O
 -- -- Tabs
 vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", { desc = "New Tab",silent = true }) -- New Tab
 vim.keymap.set("n", "<Leader>qt", ":tabc<CR>", { desc = "Close Tab", silent = true }) -- Close Tab
+
 
 -- -- Vimtext
 vim.keymap.set("n", "<leader>tc", ":VimtexCompile<CR><CR>", { desc = "Compile Latex Document", silent = true })
@@ -44,6 +49,10 @@ vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<cr>", { desc = "Open Diffview",
 vim.keymap.set("n", "<leader>gc", ":DiffviewClose<cr>", { desc = "Close Diffview", silent = true })
 
 
+-- Floating Terminal
+vim.keymap.set("n", "<leader>Ft", ":FloatermNew<cr>", { desc = "New Terminal", silent = true })
+vim.keymap.set("n", "<F4>", ":FloatermToggle<cr>", { desc = "Toggle Terminal", silent = true })
+vim.keymap.set("n", "<F5>", ":FloattermKill<cr>", { desc = "Next Terminal", silent = true })
 
 --Normal Mode
 vim.keymap.set("n", "<leader>kj", ":nohl<cr>", { desc = "Clear Hightlights", silent = true })

@@ -105,11 +105,11 @@ return {
 					})
 				end,
 			})
-			lspconfig["matlab_ls"].setup({
+			lspconfig['matlab_ls'].setup({
 				settings = {
 					MATLAB = {
 						indexWorkspace = true,
-						installPath = "/Applications/MATLAB_R2024a.app",
+						installPath = "/Applications/MATLAB_R2024b.app",
 						matlabConnectionTiming = "onStart",
 						telemetry = true,
 					},
