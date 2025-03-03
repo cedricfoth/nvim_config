@@ -7,6 +7,7 @@
 --vim.keymap.set('n','<c-j>',':wincmd j<CR>',{}) --Move Down
 --vim.keymap.set('n','<c-k>',':wincmd k<CR>',{}) -- Move Up
 
+
 vim.keymap.set("n", "ä", "]", {remap = true}) -- Split Horizontal
 vim.keymap.set("n", "ö", "[", {remap = true})   -- Split Vertical
 vim.keymap.set("n", "ü", "'", {remap = true})   -- Split Vertical
@@ -48,6 +49,10 @@ vim.keymap.set("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open TOC", silen
 vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<cr>", { desc = "Open Diffview", silent = true })
 vim.keymap.set("n", "<leader>gc", ":DiffviewClose<cr>", { desc = "Close Diffview", silent = true })
 
+-- Copilot
+vim.keymap.set("i","<C-l>","<Plug>(copilot-accept-word)",{silent = true})
+
+
 
 -- Floating Terminal
 vim.keymap.set("n", "<leader>Ft", ":FloatermNew<cr>", { desc = "New Terminal", silent = true })
@@ -58,8 +63,10 @@ vim.keymap.set("n", "<F5>", ":FloattermKill<cr>", { desc = "Next Terminal", sile
 vim.keymap.set("n", "<leader>kj", ":nohl<cr>", { desc = "Clear Hightlights", silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Clear Hightlights", silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Clear Hightlights", silent = true })
+vim.keymap.set("n", "<C-s>", ":s/<C-r><C-w>/", { desc = "Replace word under Cursor"})
 
 --Insert Mode
 vim.keymap.set("i", "kj", "<Esc>", {})
 --Visual Mode
 vim.keymap.set("v", "kj", "<Esc>", {})
+vim.keymap.set("v", "<leader>p", "\"_dP", { desc = "Paste without yanking" })
