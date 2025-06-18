@@ -8,5 +8,8 @@ return{
     t({"### "..vim.fn.strftime("%Y-%m-%d"), "Fragen: "}),
     i(1),
     t({"","#### Informationen/Notes:","", "#### Wichtige Punkte:","","#### Zusammenfassung:", ""})
+  }),
+  s("check", {
+    t({"&check;"})
   })
 }
