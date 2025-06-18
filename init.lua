@@ -11,7 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
+-- Auto commands
+-- vim.api.nvim_create_autocmd("WinNew", {
+--     pattern = "*",
+--     callback = function()
+--         vim.cmd("wincmd w")
+--     end,
+-- })
 
 -- General Settings
 require("general/general")
