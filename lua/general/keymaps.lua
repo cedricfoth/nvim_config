@@ -8,6 +8,7 @@
 --vim.keymap.set('n','<c-k>',':wincmd k<CR>',{}) -- Move Up
 
 local keymap = vim.keymap.set
+local delkey = vim.keymap.del
 
 keymap("n", "ä", "]", {remap = true}) -- Split Horizontal
 keymap("n", "ö", "[", {remap = true})   -- Split Vertical
@@ -58,6 +59,12 @@ keymap("n", "<leader>gc", ":DiffviewClose<cr>", { desc = "Close Diffview", silen
 
 -- Copilot
 keymap("i","<C-l>","<Plug>(copilot-accept-word)",{silent = true})
+
+vim.g.copilot_no_tab_map = true
+keymap('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
 
 -- Refactoring
 vim.keymap.set("x", "<leader>re", ":Refactor extract ")
