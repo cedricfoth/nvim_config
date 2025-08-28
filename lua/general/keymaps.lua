@@ -9,28 +9,28 @@
 
 local keymap = vim.keymap.set
 
-keymap("n", "ä", "]", {remap = true}) -- Split Horizontal
-keymap("n", "ö", "[", {remap = true})   -- Split Vertical
-keymap("n", "ü", "'", {remap = true})   -- Split Vertical
+keymap("n", "ä", "]", {remap = true})
+keymap("n", "ö", "[", {remap = true })
+keymap("n", "ü", "'", {remap = true})
 keymap('n', '<C-f>', '<Nop>', { noremap = true, silent = true })
 
 -- -- Split
 keymap("n", "||", ":vsplit<cr>", { silent = true, desc = "Split window vertically" })
-keymap("n", "-_", ":split<cr>",  { silent = true, desc = "Split window horizontally" })
+keymap("n", "--", ":split<cr>",  { silent = true, desc = "Split window horizontally" })
 keymap("n", "<Leader>sx", "<C-w>q", { desc = "Quit Split" })       -- Quit Split
 keymap("n", "=", "<C-w>=", { desc = "Equal Size" })       -- Equal Size
 keymap("n", "<Leader>sm", "<C-w>T", { desc = "Open in Tab" })       -- Open in Tab
 -- -- Window Resizing
-keymap("n", "|+", ":vert res +15<cr>",      { silent = true, desc = "Increase window height" })
-keymap("n", "|-", ":vert res -15<cr>",      { silent = true, desc = "Decrease window height" })
-keymap("n", "++", ":res +15<cr>", { silent = true, desc = "Increase window width" })
-keymap("n", "--", ":res -15<cr>", { silent = true, desc = "Decrease window width" })
+keymap("n", "tl", ":vert res +15<cr>",      { silent = true, desc = "Increase window height" })
+keymap("n", "th", ":vert res -15<cr>",      { silent = true, desc = "Decrease window height" })
+keymap("n", "tk", ":res +15<cr>", { silent = true, desc = "Increase window width" })
+keymap("n", "tj", ":res -15<cr>", { silent = true, desc = "Decrease window width" })
 
 -- -- Tabs
 keymap("n", "<Leader>tn", ":tabnew<CR>", { desc = "New Tab",silent = true }) -- New Tab
 keymap("n", "<Leader>qt", ":tabc<CR>", { desc = "Close Tab", silent = true }) -- Close Tab
-keymap("n", "]]", ":tabnext<CR>", { desc = "Next Tab", silent = true }) -- Close Tab
-keymap("n", "[[", ":tabprevious<CR>", { desc = "Next Tab", silent = true }) -- Close Tab
+keymap("n", "ää", ":tabnext<CR>", { desc = "Next Tab", silent = true }) -- Next Tab
+keymap("n", "öö", ":tabprevious<CR>", { desc = "Previous Tab", silent = true }) -- Previous Tab
 
 
 -- -- Vimtext
@@ -53,6 +53,7 @@ keymap("n", "<leader>og", ":ObsidianFollowLink<cr>", { desc = "Follow Link", sil
 keymap("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open TOC", silent = true })
 
 
+
 -- Diffview
 keymap("n", "<leader>gd", ":DiffviewOpen<cr>", { desc = "Open Diffview", silent = true })
 keymap("n", "<leader>gc", ":DiffviewClose<cr>", { desc = "Close Diffview", silent = true })
@@ -67,26 +68,22 @@ keymap('i', '<S-Tab>', 'copilot#Accept("\\<CR>")', {
 })
 
 -- Refactoring
-vim.keymap.set("x", "<leader>re", ":Refactor extract ")
-vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+keymap("x", "<leader>re", ":Refactor extract ",{desc = "Extract Function"})
+keymap("x", "<leader>rf", ":Refactor extract_to_file ", {desc = "Extract Function to File"})
 
-vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+keymap("x", "<leader>rv", ":Refactor extract_var ", {desc = "Extract Variable"})
 
-vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+keymap({ "n", "x" }, "<leader>ri", ":Refactor inline_var", {desc = "Inline Variable"})
 
-vim.keymap.set( "n", "<leader>rI", ":Refactor inline_func")
+keymap( "n", "<leader>rI", ":Refactor inline_func", {desc = "Inline Function"})
 
-vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
-vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+keymap("n", "<leader>rb", ":Refactor extract_block", {desc = "Extract Block"})
+keymap("n", "<leader>rbf", ":Refactor extract_block_to_file", {desc = "Extract Block to File"})
 
 -- Undotree
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { desc = "Toggle Undotree", silent = true })
+keymap("n", "<leader>u", ":UndotreeToggle<cr>", { desc = "Toggle Undotree", silent = true })
 
 
--- Floating Terminal
-keymap("n", "<leader>Ft", ":FloatermNew<cr>", { desc = "New Terminal", silent = true })
-keymap("n", "<F4>", ":FloatermToggle<cr>", { desc = "Toggle Terminal", silent = true })
-keymap("n", "<F5>", ":FloattermKill<cr>", { desc = "Next Terminal", silent = true })
 
 --Normal Mode
 keymap("n", "<leader>kj", ":nohl<cr>", { desc = "Clear Hightlights", silent = true })
@@ -121,11 +118,11 @@ keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block 
 --local map = function(lhs, rhs, desc)
 --  vim.keymap.set('n', lhs, rhs, { silent = true, desc = 'Octo: ' .. desc })
 --end
-keymap('n', 'ghr', '<cmd>Octo review start<cr>', { silent = true, desc = 'Octo: Start new review' })
-keymap('n', 'ghR', '<cmd>Octo review submit<cr>', { silent = true, desc = 'Octo: Submit review' })
-keymap('n', 'ghd', '<cmd>Octo review close<cr>', { silent = true, desc = 'Octo: Discard review' })
-keymap('n', 'ghca', '<cmd>Octo review comment<cr>', { silent = true, desc = 'Octo: Add review comment' })
-keymap('n', 'ghcs', '<cmd>Octo review suggestion<cr>', { silent = true, desc = 'Octo: Add review suggestion' })
+keymap('n', ',ghr', '<cmd>Octo review start<cr>', { silent = true, desc = 'Octo: Start new review' })
+keymap('n', ',ghR', '<cmd>Octo review submit<cr>', { silent = true, desc = 'Octo: Submit review' })
+keymap('n', ',ghd', '<cmd>Octo review close<cr>', { silent = true, desc = 'Octo: Discard review' })
+keymap('n', ',ghca', '<cmd>Octo review comment<cr>', { silent = true, desc = 'Octo: Add review comment' })
+keymap('n', ',ghcs', '<cmd>Octo review suggestion<cr>', { silent = true, desc = 'Octo: Add review suggestion' })
 
 -- Allgemeine Kommentar-Aktionen
 keymap('n', 'ca', '<cmd>Octo comment add<cr>', { silent = true, desc = 'Octo: Add a standalone comment' })
@@ -142,13 +139,13 @@ local function open_octo_item(item_type)
 end
 
 -- Pull Requests
-keymap('n', 'ghpl', '<cmd>Telescope octo pull_requests<cr>', { silent = true, desc = 'Octo: List Pull Requests' })
-keymap('n', 'ghpa', '<cmd>Telescope octo pull_requests assignee=@me<cr>', { silent = true, desc = 'Octo: List my assigned PRs' })
-keymap('n', 'ghpc', '<cmd>Octo pr create<cr>', { silent = true, desc = 'Octo: Create Pull Request' })
-keymap('n', 'ghpb', '<cmd>Octo pr checkout<cr>', { silent = true, desc = 'Octo: Checkout PR branch' })
+keymap('n', ',ghpl', '<cmd>Telescope octo pull_requests<cr>', { silent = true, desc = 'Octo: List Pull Requests' })
+keymap('n', ',ghpa', '<cmd>Telescope octo pull_requests assignee=@me<cr>', { silent = true, desc = 'Octo: List my assigned PRs' })
+keymap('n', ',ghpc', '<cmd>Octo pr create<cr>', { silent = true, desc = 'Octo: Create Pull Request' })
+keymap('n', ',ghpb', '<cmd>Octo pr checkout<cr>', { silent = true, desc = 'Octo: Checkout PR branch' })
 
 -- Issues
-keymap('n', 'ghil', '<cmd>Telescope octo issues<cr>', { silent = true, desc = 'Octo: List Issues' })
-keymap('n', 'ghia', '<cmd>Telescope octo issues assignee=@me<cr>', { silent = true, desc = 'Octo: List my assigned Issues' })
-keymap('n', 'ghic', '<cmd>Octo issue create<cr>', { silent = true, desc = 'Octo: Create Issue' })
-keymap('n', 'ghio', function() open_octo_item('issue') end, { silent = true, desc = 'Octo: Open Issue # (from selection/clipboard)' })
+keymap('n', ',ghil', '<cmd>Telescope octo issues<cr>', { silent = true, desc = 'Octo: List Issues' })
+keymap('n', ',ghia', '<cmd>Telescope octo issues assignee=@me<cr>', { silent = true, desc = 'Octo: List my assigned Issues' })
+keymap('n', ',ghic', '<cmd>Octo issue create<cr>', { silent = true, desc = 'Octo: Create Issue' })
+keymap('n', ',ghio', function() open_octo_item('issue') end, { silent = true, desc = 'Octo: Open Issue # (from selection/clipboard)' })
