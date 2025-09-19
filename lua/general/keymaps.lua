@@ -9,9 +9,9 @@
 
 local keymap = vim.keymap.set
 
-keymap("n", "ä", "]", {remap = true})
-keymap("n", "ö", "[", {remap = true })
-keymap("n", "ü", "'", {remap = true})
+-- keymap("n", "ä", "]", {remap = true})
+-- keymap("n", "ö", "[", {remap = true })
+-- keymap("n", "ü", "'", {remap = true})
 keymap('n', '<C-f>', '<Nop>', { noremap = true, silent = true })
 
 -- -- Split
@@ -111,22 +111,6 @@ keymap("n", "N", "Nzzzv", { silent = true, desc = "Move to previous search match
 -- Move Visual Block
 keymap("x", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move visual block down" })
 keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block up" })
-
--- =============================================================================
--- Octo.nvim Shortcuts -- Leader + r (für Review/Repo)
--- =============================================================================
---local map = function(lhs, rhs, desc)
---  vim.keymap.set('n', lhs, rhs, { silent = true, desc = 'Octo: ' .. desc })
---end
-keymap('n', ',ghr', '<cmd>Octo review start<cr>', { silent = true, desc = 'Octo: Start new review' })
-keymap('n', ',ghR', '<cmd>Octo review submit<cr>', { silent = true, desc = 'Octo: Submit review' })
-keymap('n', ',ghd', '<cmd>Octo review close<cr>', { silent = true, desc = 'Octo: Discard review' })
-keymap('n', ',ghca', '<cmd>Octo review comment<cr>', { silent = true, desc = 'Octo: Add review comment' })
-keymap('n', ',ghcs', '<cmd>Octo review suggestion<cr>', { silent = true, desc = 'Octo: Add review suggestion' })
-
--- Allgemeine Kommentar-Aktionen
-keymap('n', 'ca', '<cmd>Octo comment add<cr>', { silent = true, desc = 'Octo: Add a standalone comment' })
-keymap('n', 'cd', '<cmd>Octo comment delete<cr>', { silent = true, desc = 'Octo: Delete comment/suggestion' })
 
 -- Hilfsfunktion, um eine Issue/PR-Nummer aus der visuellen Auswahl oder dem Register zu öffnen
 local function open_octo_item(item_type)

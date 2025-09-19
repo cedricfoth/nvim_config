@@ -20,7 +20,7 @@ return {
     s("task", {
         t({ "- [ ] " }),       -- erste Zeile: Checkbox
         i(1, "Beschreibung"),  -- Taskbeschreibung
-        t({ "", "  tags: #" }), -- zweite Zeile: Tags
+        t({ " #" }), -- zweite Zeile: Tags
         f(filename, {}),       -- automatischer Dateiname als Tag
         t({"_"}),
         i(2, "custom"),

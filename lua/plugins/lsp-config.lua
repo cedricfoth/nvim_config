@@ -48,12 +48,6 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            local on_attach = function(bufnr)
-                vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code Action" })
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover Docs" })
-                vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { buffer = bufnr, desc = "Format" })
-            end
-
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
@@ -147,17 +141,15 @@ return {
                 },
             })
 
-            local defaultLSPs = {
-                "sourcekit",
-            }
-
-            for _, lsp in ipairs(defaultLSPs) do
-                lspconfig[lsp].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    cmd = lsp == "sourcekit" and { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) } or nil,
-                })
-            end
+            lspconfig.sourcekit.setup({
+                capabilities = {
+                    workspace = {
+                        didChangeWatchedFiles = {
+                            dynamicRegistration = true,
+                        },
+                    },
+                },
+            })
 
             vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { noremap = true, silent = true, desc = "Format" })
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename" })

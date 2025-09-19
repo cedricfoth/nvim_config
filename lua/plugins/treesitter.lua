@@ -17,8 +17,8 @@ return {
                 "markdown",
                 "gitignore",
             },
-            highlight = { enable = true },
-            indent = { enable = true },
+            highlight = { enable = false },
+            indent = { enable = false },
         })
     end,
 }
