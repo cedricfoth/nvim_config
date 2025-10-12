@@ -26,5 +26,6 @@ require("general/keymaps")
 
 -- Plugin Management
 require("lazy").setup("plugins")
+require("lazy").setup("plugins/lsp-config")
 
 

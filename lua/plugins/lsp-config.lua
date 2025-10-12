@@ -34,6 +34,7 @@ return {
                     "cssls",
                     "eslint",
                 },
+                automatic_enable = false,
             })
         end,
     },
@@ -114,20 +115,17 @@ return {
                 },
             })
             lspconfig.ltex.setup({
+                on_attach = on_attach,
                 capabilities = capabilities,
-                filetypes = { "latex", "tex", "markdown", "md", "pandoc", "vimwiki.markdown.pandoc" },
+                use_spellfile = false,
+                filetypes = { "latex", "tex", "bib", "markdown", "gitcommit", "text" },
                 settings = {
                     ltex = {
-                        enabled = { "latex", "typst", "typ", "bib", "markdown", "plaintex", "tex" },
+                        enabled = { "latex", "tex", "bib", "markdown" },
                         language = "de-DE",
                         checkFrequency = "save",
                     },
                 },
-                on_attach = function()
-                    require("ltex_extra").setup({
-                        init_check = true,
-                    })
-                end,
             })
             lspconfig["matlab_ls"].setup({
                 filetypes = { "matlab", "octave" },
@@ -151,7 +149,7 @@ return {
                 },
             })
 
-            vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { noremap = true, silent = true, desc = "Format" })
+            vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { noremap = true, silent = true, desc = "Format" })
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename" })
             vim.keymap.set(
                 "n",

@@ -9,9 +9,10 @@
 
 local keymap = vim.keymap.set
 
--- keymap("n", "ä", "]", {remap = true})
--- keymap("n", "ö", "[", {remap = true })
--- keymap("n", "ü", "'", {remap = true})
+
+keymap("n", "ä", "]", {remap = false})
+keymap("n", "ö", "[", {remap = false })
+keymap("n", "ü", "'", {remap = true})
 keymap('n', '<C-f>', '<Nop>', { noremap = true, silent = true })
 
 -- -- Split
@@ -51,7 +52,6 @@ keymap("n", "<leader>os", ":ObsidianFollowLink vsplit<cr>", { desc = "Open Link 
 keymap("n", "<leader>oh", ":ObsidianFollowLink hsplit<cr>", { desc = "Open Link in hsplit", silent = true })
 keymap("n", "<leader>og", ":ObsidianFollowLink<cr>", { desc = "Follow Link", silent = true })
 keymap("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open TOC", silent = true })
-
 
 
 -- Diffview
