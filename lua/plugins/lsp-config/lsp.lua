@@ -1,12 +1,10 @@
 return {
+    -- Installation of Mason and Lspsaga
     {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
         end,
-    },
-    {
-        "github/copilot.vim",
     },
     {
         "nvimdev/lspsaga.nvim",
@@ -17,6 +15,7 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
     },
+    -- Ensure lsp servers are installed
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
@@ -37,11 +36,6 @@ return {
                 automatic_enable = false,
             })
         end,
-    },
-    {
-        "barreiroleo/ltex_extra.nvim",
-        ft = { "markdown", "tex" },
-        dependencies = { "neovim/nvim-lspconfig" },
     },
     {
         "neovim/nvim-lspconfig",
@@ -148,44 +142,6 @@ return {
                     },
                 },
             })
-
-            vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { noremap = true, silent = true, desc = "Format" })
-            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename" })
-            vim.keymap.set(
-                "n",
-                "<leader>lx",
-                ":LspStop<cr>",
-                { noremap = true, silent = true, desc = "Stop LSP Client" }
-            )
-            vim.keymap.set(
-                "n",
-                "<leader>ls",
-                ":LspStart<cr>",
-                { noremap = true, silent = true, desc = "Start LSP Client" }
-            )
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, desc = "Hover" })
-            vim.keymap.set(
-                "n",
-                "gD",
-                vim.lsp.buf.declaration,
-                { noremap = true, silent = true, desc = "Go to Declaration" }
-            )
-            vim.keymap.set(
-                "n",
-                "gd",
-                vim.lsp.buf.definition,
-                { noremap = true, silent = true, desc = "Go to Definition" }
-            )
-            vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_next <cr>", { desc = "Next Diagnostic", silent = true })
-            vim.keymap.set(
-                "n",
-                "[d",
-                ":Lspsaga diagnostic_jump_prev <cr>",
-                { desc = "Previous Diagnostic", silent = true }
-            )
-            vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-            vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show Diagnostics" })
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
         end,
     },
 }

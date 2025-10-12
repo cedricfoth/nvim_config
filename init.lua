@@ -11,21 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Auto commands
--- vim.api.nvim_create_autocmd("WinNew", {
---     pattern = "*",
---     callback = function()
---         vim.cmd("wincmd w")
---     end,
--- })
-
 -- General Settings
 require("general/general")
 --Keyboard Mappings
 require("general/keymaps")
 
 -- Plugin Management
-require("lazy").setup("plugins")
-require("lazy").setup("plugins/lsp-config")
+require("lazy").setup({{import ="plugins"},{import="plugins.lsp-config"}})
 
 
