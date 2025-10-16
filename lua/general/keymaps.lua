@@ -12,13 +12,12 @@ local keymap = vim.keymap.set
 keymap("n", "ä", "]", { remap = false })
 keymap("n", "ö", "[", { remap = false })
 keymap("n", "ü", "'", { remap = true })
-keymap("n", "<C-f>", "<Nop>", { noremap = true, silent = true })
 
 -- -- Split
 keymap("n", "||", ":vsplit<cr>", { silent = true, desc = "Split window vertically" })
 keymap("n", "--", ":split<cr>", { silent = true, desc = "Split window horizontally" })
-keymap("n", "<Leader>sx", "<C-w>q", { desc = "Quit Split" })  -- Quit Split
-keymap("n", "=", "<C-w>=", { desc = "Equal Size" })           -- Equal Size
+keymap("n", "<Leader>sx", "<C-w>q", { desc = "Quit Split" }) -- Quit Split
+keymap("n", "=", "<C-w>=", { desc = "Equal Size" }) -- Equal Size
 keymap("n", "<Leader>sm", "<C-w>T", { desc = "Open in Tab" }) -- Open in Tab
 -- -- Window Resizing
 keymap("n", "tl", ":vert res +15<cr>", { silent = true, desc = "Increase window height" })
@@ -27,18 +26,18 @@ keymap("n", "tk", ":res +15<cr>", { silent = true, desc = "Increase window width
 keymap("n", "tj", ":res -15<cr>", { silent = true, desc = "Decrease window width" })
 
 -- -- Tabs
-keymap("n", "<Leader>tn", ":tabnew<CR>", { desc = "New Tab", silent = true })   -- New Tab
-keymap("n", "<Leader>qt", ":tabc<CR>", { desc = "Close Tab", silent = true })   -- Close Tab
-keymap("n", "ää", ":tabnext<CR>", { desc = "Next Tab", silent = true })         -- Next Tab
+keymap("n", "<Leader>tn", ":tabnew<CR>", { desc = "New Tab", silent = true }) -- New Tab
+keymap("n", "<Leader>qt", ":tabc<CR>", { desc = "Close Tab", silent = true }) -- Close Tab
+keymap("n", "ää", ":tabnext<CR>", { desc = "Next Tab", silent = true }) -- Next Tab
 keymap("n", "öö", ":tabprevious<CR>", { desc = "Previous Tab", silent = true }) -- Previous Tab
 
 -- -- Vimtext
 keymap("n", "<leader>tc", ":VimtexCompile<CR><CR>", { desc = "Compile Latex Document", silent = true })
 keymap(
-    "n",
-    "<leader>tz",
-    ":!zathura --fork %:t:r.pdf<CR><CR>",
-    { desc = "Open zathura for current document", silent = true }
+	"n",
+	"<leader>tz",
+	":!zathura --fork %:t:r.pdf<CR><CR>",
+	{ desc = "Open zathura for current document", silent = true }
 )
 keymap("n", "<leader>tt", ":VimtexTocToggle<CR>", { desc = "Toggle TOC", silent = true })
 keymap("n", "<leader>ts", ":VimtexView<CR>", { desc = "Show in PDF", silent = true })
@@ -47,7 +46,6 @@ keymap("n", "<leader>ts", ":VimtexView<CR>", { desc = "Show in PDF", silent = tr
 keymap("n", "<leader>oo", ":ObsidianOpen<cr>", { desc = "Open current File in Obsidian", silent = true })
 keymap("n", "<leader>os", ":ObsidianFollowLink vsplit<cr>", { desc = "Open Link in vsplit", silent = true })
 keymap("n", "<leader>oh", ":ObsidianFollowLink hsplit<cr>", { desc = "Open Link in hsplit", silent = true })
-keymap("n", "<leader>og", ":ObsidianFollowLink<cr>", { desc = "Follow Link", silent = true })
 keymap("n", "<leader>ot", ":ObsidianTOC<cr>", { desc = "Open TOC", silent = true })
 
 -- Diffview
@@ -59,8 +57,8 @@ keymap("i", "<C-l>", "<Plug>(copilot-accept-word)", { silent = true })
 
 vim.g.copilot_no_tab_map = true
 keymap("i", "<S-Tab>", 'copilot#Accept("\\<CR>")', {
-    expr = true,
-    replace_keycodes = false,
+	expr = true,
+	replace_keycodes = false,
 })
 
 -- Refactoring
@@ -93,10 +91,10 @@ keymap("n", "gp", "`[v`]", { silent = true, desc = "Re-select last pasted text" 
 
 -- Greatest keymap ever from ThePrimeagen
 keymap(
-    { "n", "x" },
-    "<leader>p",
-    [["_dP]],
-    { silent = true, desc = "Paste text from the clipboard, discarding the selected text" }
+	{ "n", "x" },
+	"<leader>p",
+	[["_dP]],
+	{ silent = true, desc = "Paste text from the clipboard, discarding the selected text" }
 )
 
 --Insert Mode
@@ -113,21 +111,21 @@ keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block 
 
 -- Hilfsfunktion, um eine Issue/PR-Nummer aus der visuellen Auswahl oder dem Register zu öffnen
 local function open_octo_item(item_type)
-    local number = vim.fn.getreg('"') -- Nummer aus dem Register holen
-    if vim.fn.mode() == "v" then   -- Wenn im visuellen Modus, den ausgewählten Text nehmen
-        vim.cmd('noautocmd silent! normal! "vy"')
-        number = vim.fn.getreg("v")
-    end
-    vim.cmd("Octo " .. item_type .. " open " .. vim.fn.trim(number))
+	local number = vim.fn.getreg('"') -- Nummer aus dem Register holen
+	if vim.fn.mode() == "v" then -- Wenn im visuellen Modus, den ausgewählten Text nehmen
+		vim.cmd('noautocmd silent! normal! "vy"')
+		number = vim.fn.getreg("v")
+	end
+	vim.cmd("Octo " .. item_type .. " open " .. vim.fn.trim(number))
 end
 
 -- Pull Requests
 keymap("n", ",ghpl", "<cmd>Telescope octo pull_requests<cr>", { silent = true, desc = "Octo: List Pull Requests" })
 keymap(
-    "n",
-    ",ghpa",
-    "<cmd>Telescope octo pull_requests assignee=@me<cr>",
-    { silent = true, desc = "Octo: List my assigned PRs" }
+	"n",
+	",ghpa",
+	"<cmd>Telescope octo pull_requests assignee=@me<cr>",
+	{ silent = true, desc = "Octo: List my assigned PRs" }
 )
 keymap("n", ",ghpc", "<cmd>Octo pr create<cr>", { silent = true, desc = "Octo: Create Pull Request" })
 keymap("n", ",ghpb", "<cmd>Octo pr checkout<cr>", { silent = true, desc = "Octo: Checkout PR branch" })
@@ -135,14 +133,14 @@ keymap("n", ",ghpb", "<cmd>Octo pr checkout<cr>", { silent = true, desc = "Octo:
 -- Issues
 keymap("n", ",ghil", "<cmd>Telescope octo issues<cr>", { silent = true, desc = "Octo: List Issues" })
 keymap(
-    "n",
-    ",ghia",
-    "<cmd>Telescope octo issues assignee=@me<cr>",
-    { silent = true, desc = "Octo: List my assigned Issues" }
+	"n",
+	",ghia",
+	"<cmd>Telescope octo issues assignee=@me<cr>",
+	{ silent = true, desc = "Octo: List my assigned Issues" }
 )
 keymap("n", ",ghic", "<cmd>Octo issue create<cr>", { silent = true, desc = "Octo: Create Issue" })
 keymap("n", ",ghio", function()
-    open_octo_item("issue")
+	open_octo_item("issue")
 end, { silent = true, desc = "Octo: Open Issue # (from selection/clipboard)" })
 
 -- LSP Keymaps
@@ -159,3 +157,25 @@ keymap("n", "[d", ":Lspsaga diagnostic_jump_prev <cr>", { desc = "Previous Diagn
 keymap({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show Diagnostics" })
 keymap("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+
+-- Molten
+-- keymap("n", "<leader>mi", ":MoltenInit<CR>", { silent = true, desc = "Initialize the plugin" })
+keymap("n", "<leader>me", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
+keymap("n", "<leader>ml", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
+keymap("n", "<leader>mr", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
+keymap(
+	"v",
+	"<leader>mv",
+	":<C-u>MoltenEvaluateVisual<CR>gv",
+	{ silent = true, desc = "evaluate visual selection" }
+)
+keymap("n", "<leader>mi", function()
+  local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+  if venv ~= nil then
+    -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
+    venv = string.match(venv, "/.+/(.+)")
+    vim.cmd(("MoltenInit %s"):format(venv))
+  else
+    vim.cmd("MoltenInit python3")
+  end
+end, { desc = "Initialize Molten for python3", silent = true })
