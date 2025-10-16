@@ -14,4 +14,6 @@ vim.cmd("set ignorecase")
 vim.cmd("let g:vimtex_view_method = 'zathura'")
 vim.cmd("let g:vimtex_compiler_method = 'latexrun'")
 --Spell
-vim.cmd("setglobal spell spelllang=de")
+-- vim.cmd("setglobal spell spelllang=de")
+-- Python
+vim.g.python3_host_prog=vim.fn.expand("~/.virtualenvs/neovim/bin/python3")
