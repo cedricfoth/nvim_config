@@ -64,7 +64,7 @@ return {
 			dap.configurations.c = dap.configurations.cpp
 			dap.configurations.rust = dap.configurations.cpp
 
-			-- Swift Debugger (lldb)
+			-- Swift Debugger
 			dap.adapters.swift = dap.adapters.lldb
 			dap.configurations.swift = {
 				{

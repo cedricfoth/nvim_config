@@ -21,6 +21,7 @@ return {
                 "vim",
                 "matlab",
                 "markdown",
+                "markdown_inline",
                 "gitignore",
                 "json",
                 "terraform",

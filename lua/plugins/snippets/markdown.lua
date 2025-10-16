@@ -24,7 +24,9 @@ return {
         f(filename, {}),       -- automatischer Dateiname als Tag
         t({"_"}),
         i(2, "custom"),
-        t({ "", "  due: " }),  -- dritte Zeile: Due-Date
+        t({ "", "  🛫 " }),  -- dritte Zeile: Start-Date
+        i(3, "YYYY-MM-DD"),
+        t({ "  📅 " }),  -- dritte Zeile: Due-Date
         i(3, "YYYY-MM-DD"),
     }),
 }
