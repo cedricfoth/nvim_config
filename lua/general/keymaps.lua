@@ -1,5 +1,3 @@
---NVIM Keymaps
-
 --Normal Mode
 -- -- Navigation
 --vim.keymap.set('n','<c-h>',':wincmd h<CR>',{}) --Move Left
@@ -9,8 +7,8 @@
 
 local keymap = vim.keymap.set
 
-keymap("n", "ä", "]", { remap = false })
-keymap("n", "ö", "[", { remap = false })
+keymap({'n', 'v', 'o'}, 'ä', ']', { remap = true })
+keymap({'n', 'v', 'o'}, 'ö', '[', { remap = true })
 keymap("n", "ü", "'", { remap = true })
 
 -- -- Split
@@ -26,10 +24,10 @@ keymap("n", "tk", ":res +15<cr>", { silent = true, desc = "Increase window width
 keymap("n", "tj", ":res -15<cr>", { silent = true, desc = "Decrease window width" })
 
 -- -- Tabs
-keymap("n", "<Leader>tn", ":tabnew<CR>", { desc = "New Tab", silent = true }) -- New Tab
+keymap("n", "<Leader>nt", ":tabnew<CR>", { desc = "New Tab", silent = true }) -- New Tab
 keymap("n", "<Leader>qt", ":tabc<CR>", { desc = "Close Tab", silent = true }) -- Close Tab
-keymap("n", "ää", ":tabnext<CR>", { desc = "Next Tab", silent = true }) -- Next Tab
-keymap("n", "öö", ":tabprevious<CR>", { desc = "Previous Tab", silent = true }) -- Previous Tab
+-- keymap("n", "ää", ":tabnext<CR>", { desc = "Next Tab", silent = true }) -- Next Tab
+-- keymap("n", "öö", ":tabprevious<CR>", { desc = "Previous Tab", silent = true }) -- Previous Tab
 
 -- -- Vimtext
 keymap("n", "<leader>tc", ":VimtexCompile<CR><CR>", { desc = "Compile Latex Document", silent = true })
