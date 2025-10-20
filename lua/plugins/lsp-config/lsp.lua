@@ -60,6 +60,7 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
+            -- local lspconfig = vim.lsp.config
 
 			vim.diagnostic.config(config)
 			if vim.g.border_enabled then
@@ -149,9 +150,6 @@ return {
 					ltex = {
 						enabled = { "latex", "tex", "bib", "markdown" },
 						language = "de-DE",
-						additionalRules = {
-							languageModel = { "en-US" }, -- weitere Sprache(n)
-						},
 						checkFrequency = "save",
 					},
 				},
