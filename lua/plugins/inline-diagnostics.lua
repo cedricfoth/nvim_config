@@ -3,7 +3,12 @@ return{
     event = "VeryLazy",
     priority = 1000,
     config = function()
-        require('tiny-inline-diagnostic').setup()
+        require('tiny-inline-diagnostic').setup({
+            preset = 'modern',
+            transparent_bg = false,
+            transparent_cursorline = false,
+        })
         vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
+
     end
 }
