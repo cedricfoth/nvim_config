@@ -22,6 +22,8 @@ return {
         i(1, "Beschreibung"),  -- Taskbeschreibung
         t({ " #" }), -- zweite Zeile: Tags
         f(filename, {}),       -- automatischer Dateiname als Tag
+        t({ " #" }), -- zweite Zeile: Tags
+        f(filename, {}),       -- automatischer Dateiname als Tag
         t({"_"}),
         i(2, "custom"),
         t({ "", "  🛫 " }),  -- dritte Zeile: Start-Date

@@ -16,6 +16,7 @@ return {
 				css = { "prettier" },
 				scss = { "prettier" },
 				markdown = { "prettier" },
+                matlab = { "mh_style" },
 				yaml = { "prettier" },
 				toml = { "taplo" },
 				terraform = { "terraform" },
