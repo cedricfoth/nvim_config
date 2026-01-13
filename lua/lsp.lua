@@ -1,0 +1,12 @@
+vim.lsp.enable("lua_ls");
+vim.lsp.enable("lua_ls");
+vim.lsp.enable("yamlls");
+vim.lsp.enable("pyright");
+vim.lsp.enable("cmake");
+vim.lsp.enable("ltex");
+vim.lsp.enable("texlab");
+vim.lsp.enable("matlab_ls");
+vim.lsp.enable("jsonls");
+vim.lsp.enable("html");
+vim.lsp.enable("cssls");
+vim.lsp.enable("eslint");
