@@ -1,21 +1,18 @@
 return {
-	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
+	-- Snippets
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
-			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
-	},
-	{
-		"hrsh7th/nvim-cmp",
 		config = function()
-			local cmp = require("cmp")
-			require("luasnip.loaders.from_vscode").lazy_load()
-
 			local ls = require("luasnip")
+
+			require("luasnip.loaders.from_vscode").lazy_load()
+			require("luasnip.loaders.from_lua").load({
+				paths = "~/.config/nvim/lua/plugins/snippets",
+			})
+
 			ls.setup({
 				snip_env = {
 					s = function(...)
@@ -28,59 +25,51 @@ return {
 					end,
 				},
 			})
-
-			require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/plugins/snippets" })
-
-			cmp.setup({
-				snippet = {
-					-- REQUIRED - you must specify a snippet engine
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-
-				window = {
-					completion = cmp.config.window.bordered({
-						border = "rounded",
-						winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
-					}),
-					documentation = cmp.config.window.bordered({
-						border = "rounded",
-						winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
-					}),
-				},
-
-				mapping = cmp.mapping.preset.insert({
-					["<C-j>"] = cmp.mapping.select_next_item(),
-					["<C-k>"] = cmp.mapping.select_prev_item(),
-					["<C-u>"] = cmp.mapping.scroll_docs(-4),
-					["<C-d>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-					["<C-n>"] = cmp.mapping(function(fallback)
-						if ls.expand_or_jumpable() then
-							ls.expand_or_jump()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-
-					["<C-p>"] = cmp.mapping(function(fallback)
-						if ls.jumpable(-1) then
-							ls.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "path" },
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- For luasnip users.
-					{ name = "buffer" },
-				}),
-			})
 		end,
+	},
+
+	-- Completion
+	{
+
+		"saghen/blink.cmp",
+		-- version = "*",
+		dependencies = {
+			"L3MON4D3/LuaSnip",
+		},
+		opts = {
+			-- Snippet Engine
+			snippets = { preset = "luasnip" },
+
+			-- Quellen (entspricht deinen cmp.sources)
+			sources = {
+				default = { "snippets", "lsp", "path", "buffer" },
+			},
+
+			completion = {
+				menu = { border = "rounded" },
+				documentation = { auto_show = true, window = { border = "rounded" } },
+			},
+
+			signature = { window = { border = "rounded" }, enabled = true },
+
+			-- Keymaps
+			keymap = {
+				preset = "none",
+
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-u>"] = { "scroll_documentation_up", "fallback" },
+				["<C-d>"] = { "scroll_documentation_down", "fallback" },
+
+				["<C-Space>"] = { "show", "fallback" },
+				["<C-e>"] = { "hide", "fallback" },
+				["<CR>"] = { "accept", "fallback" },
+
+				-- LuaSnip Integration
+				["<C-n>"] = { "snippet_forward", "show" },
+
+				["<C-p>"] = { "snippet_backward", "show" },
+			},
+		},
 	},
 }
