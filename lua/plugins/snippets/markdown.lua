@@ -29,6 +29,6 @@ return {
         t({ "", "  🛫 " }),  -- dritte Zeile: Start-Date
         i(3, "YYYY-MM-DD"),
         t({ "  📅 " }),  -- dritte Zeile: Due-Date
-        i(3, "YYYY-MM-DD"),
+        i(4, "YYYY-MM-DD"),
     }),
 }
