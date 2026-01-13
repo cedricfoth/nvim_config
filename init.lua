@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("general/general")
 --Keyboard Mappings
 require("general/keymaps")
+require("lsp")
 
 -- Plugin Management
 require("lazy").setup({{import ="plugins"},{import="plugins.lsp-config"}})
