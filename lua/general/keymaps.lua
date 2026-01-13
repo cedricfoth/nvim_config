@@ -151,9 +151,7 @@ keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block 
 keymap("n", "<leader>lr", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename" })
 keymap("n", "<leader>lx", ":LspStop<cr>", { noremap = true, silent = true, desc = "Stop LSP Client" })
 keymap("n", "<leader>ls", ":LspStart<cr>", { noremap = true, silent = true, desc = "Start LSP Client" })
-keymap("n", "K", function()
-	vim.lsp.buf.hover({ border = "single", max_height = 25, max_width = 120 })
-end, { desc = "Hover Documentation" })
+keymap("n", "K", vim.lsp.buf.hover , { desc = "Hover Documentation" })
 keymap("n", "gD", vim.lsp.buf.declaration, { noremap = true, silent = true, desc = "Go to Declaration" })
 keymap("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to Definition" })
 -- keymap("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true, desc = "Go to Reference" }) -- Deprecated due to new Lspsaga keymap

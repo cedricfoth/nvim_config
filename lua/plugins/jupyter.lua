@@ -10,14 +10,14 @@ return {
 			vim.g.molten_output_win_max_height = 50
 		end,
 	},
-	{
-		"GCBallesteros/jupytext.nvim",
-		config = function ()
-            require("jupytext").setup{
-                style = "markdown",
-                output_extension ="md",
-                force_ft = "markdown",
-            }
-		end,
-	},
+	-- {
+	-- 	"GCBallesteros/jupytext.nvim",
+	-- 	config = function ()
+ --            require("jupytext").setup{
+ --                style = "markdown",
+ --                output_extension ="md",
+ --                force_ft = "markdown",
+ --            }
+	-- 	end,
+	-- },
 }
