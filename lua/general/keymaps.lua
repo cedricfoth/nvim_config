@@ -111,55 +111,14 @@ keymap("n", "N", "Nzzzv", { silent = true, desc = "Move to previous search match
 -- Move Visual Block
 keymap("x", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move visual block down" })
 keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block up" })
-
--- -- Hilfsfunktion, um eine Issue/PR-Nummer aus der visuellen Auswahl oder dem Register zu öffnen
--- local function open_octo_item(item_type)
--- 	local number = vim.fn.getreg('"') -- Nummer aus dem Register holen
--- 	if vim.fn.mode() == "v" then -- Wenn im visuellen Modus, den ausgewählten Text nehmen
--- 		vim.cmd('noautocmd silent! normal! "vy"')
--- 		number = vim.fn.getreg("v")
--- 	end
--- 	vim.cmd("Octo " .. item_type .. " open " .. vim.fn.trim(number))
--- end
-
--- -- Pull Requests
--- keymap("n", ",ghpl", "<cmd>Telescope octo pull_requests<cr>", { silent = true, desc = "Octo: List Pull Requests" })
--- keymap(
--- 	"n",
--- 	",ghpa",
--- 	"<cmd>Telescope octo pull_requests assignee=@me<cr>",
--- 	{ silent = true, desc = "Octo: List my assigned PRs" }
--- )
--- keymap("n", ",ghpc", "<cmd>Octo pr create<cr>", { silent = true, desc = "Octo: Create Pull Request" })
--- keymap("n", ",ghpb", "<cmd>Octo pr checkout<cr>", { silent = true, desc = "Octo: Checkout PR branch" })
---
--- -- Issues
--- keymap("n", ",ghil", "<cmd>Telescope octo issues<cr>", { silent = true, desc = "Octo: List Issues" })
--- keymap(
--- 	"n",
--- 	",ghia",
--- 	"<cmd>Telescope octo issues assignee=@me<cr>",
--- 	{ silent = true, desc = "Octo: List my assigned Issues" }
--- )
--- keymap("n", ",ghic", "<cmd>Octo issue create<cr>", { silent = true, desc = "Octo: Create Issue" })
--- keymap("n", ",ghio", function()
--- 	open_octo_item("issue")
--- end, { silent = true, desc = "Octo: Open Issue # (from selection/clipboard)" })
-
 -- LSP Keymaps
 
 keymap("n", "<leader>lr", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename" })
-keymap("n", "<leader>lx", ":LspStop<cr>", { noremap = true, silent = true, desc = "Stop LSP Client" })
-keymap("n", "<leader>ls", ":LspStart<cr>", { noremap = true, silent = true, desc = "Start LSP Client" })
 keymap("n", "K", vim.lsp.buf.hover , { desc = "Hover Documentation" })
 keymap("n", "gD", vim.lsp.buf.declaration, { noremap = true, silent = true, desc = "Go to Declaration" })
 keymap("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to Definition" })
--- keymap("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true, desc = "Go to Reference" }) -- Deprecated due to new Lspsaga keymap
-keymap("n", "]d", ":Lspsaga diagnostic_jump_next <cr>", { desc = "Next Diagnostic", silent = true })
-keymap("n", "[d", ":Lspsaga diagnostic_jump_prev <cr>", { desc = "Previous Diagnostic", silent = true })
 keymap({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
 keymap("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show Diagnostics" })
--- keymap("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" }) -- Deprecated due to new Lspsaga keymap
 
 -- Molten
 keymap("n", "<leader>je", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "Jupyter: run operator selection" })
