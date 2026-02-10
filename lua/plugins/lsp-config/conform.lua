@@ -16,7 +16,7 @@ return {
 				css = { "prettier" },
 				scss = { "prettier" },
 				markdown = { "prettier" },
-                matlab = { "mh_style" },
+				matlab = { "mh_style" },
 				yaml = { "prettier" },
 				toml = { "taplo" },
 				terraform = { "terraform" },
@@ -24,10 +24,19 @@ return {
 				latex = { "latexindent" },
 				bibtex = { "latexindent" },
 			},
+
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
+
+			format_on_save = {
+				lsp_format = "fallback",
+				timeout_ms = 500,
+			},
 		})
 
 		vim.keymap.set("n", "<leader>lf", function()
-			conform.format({ lsp_fallback = true, async = true})
+			conform.format({ lsp_fallback = true, async = true })
 		end, { desc = "Format file" })
 	end,
 }
