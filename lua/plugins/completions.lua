@@ -32,7 +32,7 @@ return {
 	{
 
 		"saghen/blink.cmp",
-		-- version = "*",
+        version = '1.*',
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 		},
@@ -51,6 +51,8 @@ return {
 			},
 
 			signature = { window = { border = "rounded" }, enabled = true },
+
+            fuzzy = { implementation = "prefer_rust_with_warning" },
 
 			-- Keymaps
 			keymap = {
