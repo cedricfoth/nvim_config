@@ -27,7 +27,7 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>lf", function()
-			conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+			conform.format({ lsp_fallback = true, async = true})
 		end, { desc = "Format file" })
 	end,
 }
