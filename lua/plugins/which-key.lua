@@ -10,7 +10,6 @@ return {
 		local wk = require("which-key")
 		wk.add({
 			{ "<leader>b", group = "Buffer" },
-			{ "<leader>j", group = " Jupyter" },
 			{ "<leader>l", group = " LSP" },
 			{ "<leader>f", group = "Finder" },
 			{ "<leader>w", group = "Window" },

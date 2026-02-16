@@ -80,7 +80,6 @@ return {
 				},
 			}
 
-			-- Keymaps (Leader + d + key)
 			local map = function(lhs, rhs, desc)
 				vim.keymap.set("n", "<leader>d" .. lhs, rhs, { desc = "DAP " .. desc })
 			end

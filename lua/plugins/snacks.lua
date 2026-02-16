@@ -1,15 +1,28 @@
 return {
 	"folke/snacks.nvim",
+	dependencies = {
+		"echasnovski/mini.icons",
+	},
 	priority = 1000,
 	lazy = false,
-	---@type snacks.Config
 	opts = {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
 		bigfile = { enabled = true },
-		dashboard = { enabled = true },
-		explorer = { enabled = true },
+		dashboard = {
+			enabled = true,
+			preset = {
+				header = [[
+                                                                     
+       ████ ██████           █████      ██                     
+      ███████████             █████                             
+      █████████ ███████████████████ ███   ███████████   
+     █████████  ███    █████████████ █████ ██████████████   
+    █████████ ██████████ █████████ █████ █████ ████ █████   
+  ███████████ ███    ███ █████████ █████ █████ ████ █████  
+ ██████  █████████████████████ ████ █████ █████ ████ ██████ 
+        ]],
+			},
+		},
+		explorer = { enabled = false },
 		indent = { enabled = false },
 		input = { enabled = true },
 		picker = { enabled = true },
@@ -19,10 +32,10 @@ return {
 		scroll = { enabled = false },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
-		image = { enabled = true },
+		image = { enabled = false },
 	},
 	keys = {
-		-- git
+
 		{
 			"<leader>gb",
 			function()
@@ -33,17 +46,30 @@ return {
 		{
 			"<leader>gl",
 			function()
-				Snacks.picker.git_log()
+				Snacks.lazygit.log_file()
 			end,
-			desc = "Git Log",
+			desc = "Lazygit Log (cwd)",
 		},
-		-- Grep
+		{
+			"<leader>lg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Lazygit",
+		},
 		{
 			"<leader>sl",
 			function()
 				Snacks.picker.lines()
 			end,
 			desc = "Buffer Lines",
+		},
+		{
+			"<leader>sD",
+			function()
+				Snacks.picker.diagnostics_buffer()
+			end,
+			desc = "Buffer Diagnostics",
 		},
 	},
 }

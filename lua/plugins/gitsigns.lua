@@ -5,7 +5,7 @@ return {
 
 		current_line_blame_opts = {
 			virt_text = true,
-			virt_text_pos = "eol",
+			virt_text_pos = "right_align",
 			delay = 100,
 			ignore_whitespace = false,
 			virt_text_priority = 100,
@@ -40,12 +40,11 @@ return {
 
 			map("n", "<leader>gP", gs.preview_hunk, "Preview hunk")
 
-			map("n", "<leader>gb", function()
+			map("n", "gB", function()
 				gs.blame_line({ full = true })
 			end, "Blame line")
 			map("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle line blame")
 
-			-- Text object
 			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
 		end,
 	},
