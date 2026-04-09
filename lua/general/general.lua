@@ -12,7 +12,12 @@ vim.g.mpalocalleader = " "
 vim.cmd("let g:vimtex_view_method = 'zathura'")
 vim.cmd("let g:vimtex_compiler_method = 'latexrun'")
 
+vim.opt.fillchars:append({
+	eob = " ", -- Entfernt die Tilden
+	vert = "▕", -- Macht die vertikale Trennlinie dezenter
+	fold = " ", -- Entfernt Zeichen in Fold-Linien
+})
 -- Spell
-vim.cmd("setglobal spell spelllang=de")
+-- vim.cmd("setglobal spell spelllang=en_us,de_de")
 -- Python
-vim.g.python3_host_prog=vim.fn.expand("~/.virtualenvs/neovim/bin/python3")
+vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim/bin/python3")

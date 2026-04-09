@@ -1,5 +1,5 @@
 return {
-	filetypes = { "matlab", "ocatave" },
+	filetypes = { "matlab", "octave" },
 	settings = {
 		MATLAB = {
 			indexWorkspace = true,

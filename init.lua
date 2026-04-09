@@ -18,4 +18,4 @@ require("general/keymaps")
 require("lsp")
 
 -- Plugin Management
-require("lazy").setup({{import ="plugins"},{import="plugins.lsp-config"}})
+require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp-config" } })

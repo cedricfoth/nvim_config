@@ -22,7 +22,7 @@ return {
 				},
 			},
 			options = {
-				theme = "catppuccin",
+				theme = catpuccin,
 				component_separators = "",
 				section_separators = { left = "", right = "" },
 			},

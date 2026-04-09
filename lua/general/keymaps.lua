@@ -111,3 +111,6 @@ keymap("n", "gD", vim.lsp.buf.declaration, { noremap = true, silent = true, desc
 keymap("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to Definition" })
 keymap({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
 keymap("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show Diagnostics" })
+
+-- Inline Diagnostics
+vim.keymap.set("n", "<leader>ddt", "<cmd>TinyInlineDiag toggle<cr>", { desc = "Toggle diagnostics" })

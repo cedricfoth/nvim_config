@@ -22,6 +22,7 @@ return {
 					"html",
 					"cssls",
 					"eslint",
+					"vale_ls",
 				},
 				-- automatic_enable = false,
 			})
@@ -29,7 +30,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-    },
+	},
 	-- 	event = { "BufReadPost", "BufNewFile" },
 	-- 	dependencies = { "saghen/blink.cmp" },
 	-- 	config = function()
